@@ -22,6 +22,7 @@ public class JSONArrayDemo {
         JSONArray b = new JSONArray(aString);
         System.out.println(b.toString());
         for(int i = 0;i<b.length();i++){
+            //JSON converts stringLong to Integer
             System.out.println((Long)b.get(i));
         }
     }

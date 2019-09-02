@@ -1,4 +1,4 @@
-package com.bladespear.demo.string_concat;
+package com.bladespear.demo.string.string_concat;
 
 import java.time.Duration;
 import java.time.Instant;

@@ -1,4 +1,4 @@
-package com.bladespear.demo;
+package com.bladespear.demo.json;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

@@ -1,4 +1,4 @@
-package com.bladespear.demo.jackson_demo;
+package com.bladespear.demo.json.jackson_demo;
 
 
 import java.io.Serializable;

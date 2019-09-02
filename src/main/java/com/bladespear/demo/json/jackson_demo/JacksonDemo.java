@@ -1,5 +1,5 @@
 //this should only work with org.codehaus.jackson
-package com.bladespear.demo.jackson_demo;
+package com.bladespear.demo.json.jackson_demo;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;

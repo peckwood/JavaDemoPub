@@ -5,8 +5,8 @@ import java.math.RoundingMode;
 
 public class BigDecimalDemo {
     public static void main(String[] args) {
-        BigDecimal a = new BigDecimal("99990");//单位为厘, 99.99元
-
+        //单位为厘, 99.99元
+        BigDecimal a = new BigDecimal("99990");
 
         BigDecimal c = a.divide(new BigDecimal(2));
         System.out.println("c: " + c);
@@ -23,7 +23,9 @@ public class BigDecimalDemo {
 
         //以50为精度, 向上取整 51>100
         System.out.println(Math.ceil(51/50.0)*50);
-
+        BigDecimal toyPriceBigDecimal = new BigDecimal(51);
+        long result = toyPriceBigDecimal.divide(new BigDecimal(50), 0, RoundingMode.CEILING).multiply(new BigDecimal(50)).longValueExact();
+        System.out.println("以50为精度, 向上取整 51 > "+result);
 
 
 

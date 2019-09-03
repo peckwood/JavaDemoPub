@@ -21,6 +21,8 @@ public class BigDecimalDemo {
         long e_long = e.setScale(-1, RoundingMode.HALF_UP).longValueExact();
         System.out.println(e_long);
 
+        //以50为精度, 向上取整 51>100
+        System.out.println(Math.ceil(51/50.0)*50);
 
 
 

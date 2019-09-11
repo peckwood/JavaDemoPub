@@ -13,6 +13,7 @@ public class JDK7To8Conversion {
         Instant instant = Instant.now();
         Date date = new Date();
         Timestamp sqlTimestamp = new Timestamp(instant.toEpochMilli());
+        LocalDateTime localDateTime = LocalDateTime.now();
 
         //Instant to utilDate
         Date date1 = Date.from(instant);
@@ -20,11 +21,24 @@ public class JDK7To8Conversion {
         //utilDate to Instant
         Instant instant1 = date.toInstant();
 
+        // ===========================================================================================
+
         //sqlTimestamp to LocalDateTime
         //will use the systemDefault time zone, This may or may not be what you want.
         // you can convert to instant, then LocalDate with zoneId
-        LocalDateTime localDateTime = sqlTimestamp.toLocalDateTime();
-        org.threeten.bp.LocalDateTime localDateTime1 = DateTimeUtils.toLocalDateTime(sqlTimestamp);
+        LocalDateTime localDateTime1 = sqlTimestamp.toLocalDateTime();
+        org.threeten.bp.LocalDateTime localDateTime2 = DateTimeUtils.toLocalDateTime(sqlTimestamp);
+
+        //LocalDateTime to sqlTimestamp
+        Timestamp.valueOf(localDateTime);
+
+        //Instant to sqlTimestamp
+        Timestamp sqlTimestamp1 = Timestamp.from(instant);
+
+        //sqlTimestamp1 to Instant
+        Instant instant2 = sqlTimestamp.toInstant();
+
+
 
 
 

@@ -22,7 +22,7 @@ public class JacksonDemo {
         veri.setRentOrderId("M1231212121212");
         veri.setTotalRetentionFee(1000000);
         veri.setTotalRentRefund(1000);
-        Map<Long, Long> entityId_ToyId_Map = new HashMap<>();
+        Map<Long, Long> entityId_ToyId_Map = new HashMap<>(1);
         entityId_ToyId_Map.put(1L, 100L);
         veri.setEntityId_ToyId_Map(entityId_ToyId_Map);
         ObjectMapper objectMapper = new ObjectMapper();

@@ -3,7 +3,7 @@ package com.bladespear.demo.multithreading.p1_create_thread;
 import java.util.concurrent.*;
 
 //4 ways to create a thread
-public class Application {
+public class MultithreadingP1Application {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         //继承Thread类
         Thread1 thread1 = new Thread1();
@@ -23,6 +23,7 @@ public class Application {
         System.out.println(result);
 
         //使用Executor框架创建线程池来运行线程是推荐的运行线程的做法
+        System.out.println("=================================================");
         int numOfThreads = 3;
         ExecutorService executorService = Executors.newFixedThreadPool(numOfThreads);
         for (int i = 0; i < numOfThreads; i++) {

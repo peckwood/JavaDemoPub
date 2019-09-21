@@ -8,7 +8,7 @@ public class CompareIntDemo {
 
         System.out.println("a == b: " + (a == b));
 
-        System.out.println("b.equals(a): " + b.equals(a));
+        System.out.println("b.equals(a): " + b.equals(1));
         System.out.println("c.equals(a): " + c.equals(a));
 
         System.out.println("b.equals(c)) " + b.equals(c));

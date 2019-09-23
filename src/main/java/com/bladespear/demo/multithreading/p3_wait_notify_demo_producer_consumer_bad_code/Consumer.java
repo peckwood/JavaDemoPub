@@ -1,24 +1,21 @@
-package com.bladespear.demo.multithreading.p3_wait_notify_demo_producer_consumer;
+package com.bladespear.demo.multithreading.p3_wait_notify_demo_producer_consumer_bad_code;
 
 import java.util.LinkedList;
 
-public class Producer implements Runnable {
-
+public class Consumer implements Runnable {
     private final LinkedList<Integer> integerQueue;
 
     @Override
     public void run() {
         synchronized (integerQueue) {
-            int i = 1;
             while (true) {
                 try {
-                    if (integerQueue.size() == 4) {
+                    if (integerQueue.isEmpty()) {
                         integerQueue.notifyAll();
                         integerQueue.wait();
                     } else {
-                        int number = i++;
-                        integerQueue.add(number);
-                        System.out.println("Producer added " + number);
+                        Integer number = integerQueue.pop();
+                        System.out.println("Consumer took " + number);
                         Thread.sleep(1000);
                         integerQueue.notifyAll();
                     }
@@ -28,8 +25,7 @@ public class Producer implements Runnable {
             }
         }
     }
-
-    public Producer(LinkedList<Integer> integerQueue) {
+    public Consumer(LinkedList<Integer> integerQueue) {
         this.integerQueue = integerQueue;
     }
 }

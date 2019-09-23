@@ -41,16 +41,15 @@ public class Producer implements Runnable {
     }
 
     private void produce() throws InterruptedException {
-        synchronized (integerQueue){
-            if(integerQueue.size() == MAX_CAPACITY){
-                integerQueue.notifyAll();
+        synchronized (integerQueue) {
+            while (integerQueue.size() == MAX_CAPACITY) {
+                System.out.println("Queue full, Producer waits.");
                 integerQueue.wait();
-            }else{
-                integerQueue.add(number);
-                System.out.println(String.format("Produced %d, integerQueue: %s", number, integerQueue));
-                number++;
-                integerQueue.notifyAll();
             }
+            integerQueue.add(number);
+            System.out.println(String.format("Produced %d, integerQueue: %s", number, integerQueue));
+            number++;
+            integerQueue.notifyAll();
         }
         Thread.sleep(random.nextInt(1000));
 

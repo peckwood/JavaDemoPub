@@ -4,6 +4,10 @@ import java.util.LinkedList;
 import java.util.concurrent.*;
 
 public class MainClassP4 {
+    /**
+     * 启发: https://howtodoinjava.com/java/multi-threading/wait-notify-and-notifyall-methods/
+     * @param args
+     */
     public static void main(String[] args) {
         LinkedList<Integer> queue = new LinkedList<>();
         Producer producer = new Producer(queue, 4);

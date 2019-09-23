@@ -31,15 +31,14 @@ public class Consumer implements Runnable {
     }
 
     private void consume() throws InterruptedException {
-        synchronized (integerQueue){
-            if(integerQueue.size() == 0){
-                integerQueue.notifyAll();
+        synchronized (integerQueue) {
+            if (integerQueue.isEmpty()) {
+                System.out.println("Queue empty, Consumer waits.");
                 integerQueue.wait();
-            }else{
-                Integer number = integerQueue.pop();
-                System.out.println(String.format("Consumed %d, integerQueue: %s", number, integerQueue));
-                integerQueue.notifyAll();
             }
+            Integer number = integerQueue.pop();
+            System.out.println(String.format("Consumed %d, integerQueue: %s", number, integerQueue));
+            integerQueue.notifyAll();
         }
         Thread.sleep(random.nextInt(1000));
     }

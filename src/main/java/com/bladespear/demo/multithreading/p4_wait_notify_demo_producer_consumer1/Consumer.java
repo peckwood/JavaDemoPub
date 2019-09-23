@@ -1,4 +1,4 @@
-package com.bladespear.demo.multithreading.p4_wait_notify_demo_producer_consumer1_improved.p3_wait_notify_demo_producer_consumer;
+package com.bladespear.demo.multithreading.p4_wait_notify_demo_producer_consumer1;
 
 import java.util.LinkedList;
 import java.util.Random;

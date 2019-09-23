@@ -1,12 +1,16 @@
-package com.bladespear.demo.multithreading.p3_wait_notify_demo_producer_consumer_bad_code;
+package com.bladespear.demo.multithreading.p4_wait_notify_demo_producer_consumer1;
 
 import java.util.LinkedList;
 import java.util.concurrent.*;
 
-public class MainClassP3 {
+public class MainClassP4 {
+    /**
+     * 启发: https://howtodoinjava.com/java/multi-threading/wait-notify-and-notifyall-methods/
+     * @param args
+     */
     public static void main(String[] args) {
         LinkedList<Integer> queue = new LinkedList<>();
-        Producer producer = new Producer(queue);
+        Producer producer = new Producer(queue, 4);
         Consumer consumer = new Consumer(queue);
 
         BlockingQueue<Runnable> workQueue = new ArrayBlockingQueue(10);

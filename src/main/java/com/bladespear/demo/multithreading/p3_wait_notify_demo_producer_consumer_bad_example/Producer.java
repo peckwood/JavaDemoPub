@@ -1,4 +1,4 @@
-package com.bladespear.demo.multithreading.p3_wait_notify_demo_producer_consumer_bad_code;
+package com.bladespear.demo.multithreading.p3_wait_notify_demo_producer_consumer_bad_example;
 
 import java.util.LinkedList;
 

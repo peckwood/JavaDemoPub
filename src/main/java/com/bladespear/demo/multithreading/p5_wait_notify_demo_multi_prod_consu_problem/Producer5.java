@@ -29,9 +29,8 @@ public class Producer5 implements Runnable {
     }
 
     private void produce() throws InterruptedException {
-
-        System.out.println(String.format("\nProducer %s has lock", threadName));
         synchronized (integerQueue) {
+            System.out.println(String.format("\nProducer %s has lock", threadName));
             /*
             'while' is mandatory because 'if' only checks once,
                 after which only spot might have been already been filled by another thread

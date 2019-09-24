@@ -23,8 +23,13 @@ public class Consumer5 implements Runnable {
     private void consume() throws InterruptedException {
 
         synchronized (integerQueue) {
-            System.out.println(String.format("Consumer %s has lock", threadName));
-            if (integerQueue.isEmpty()) {
+            System.out.println(String.format("\nConsumer %s has lock", threadName));
+            /*
+                'while' is mandatory because 'if' only checks once,
+                after which only number might have been already popped by another
+                and it is trying to pop from an empty queue
+             */
+            while (integerQueue.isEmpty()) {
                 System.out.println(String.format("Queue empty, %s waits.", threadName));
                 integerQueue.wait();
             }

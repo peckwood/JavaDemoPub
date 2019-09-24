@@ -21,7 +21,7 @@ public class Consumer implements Runnable {
 
     private void consume() throws InterruptedException {
         synchronized (integerQueue) {
-            if (integerQueue.isEmpty()) {
+            while (integerQueue.isEmpty()) {
                 System.out.println("Queue empty, Consumer5 waits.");
                 integerQueue.wait();
             }

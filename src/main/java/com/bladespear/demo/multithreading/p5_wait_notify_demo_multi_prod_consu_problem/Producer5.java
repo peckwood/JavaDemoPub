@@ -30,8 +30,13 @@ public class Producer5 implements Runnable {
 
     private void produce() throws InterruptedException {
 
-        System.out.println(String.format("Producer %s has lock", threadName));
+        System.out.println(String.format("\nProducer %s has lock", threadName));
         synchronized (integerQueue) {
+            /*
+            'while' is mandatory because 'if' only checks once,
+                after which only spot might have been already been filled by another thread
+                and it is trying to fill an full queue (imagine the it has max capacity)
+             */
             while (integerQueue.size() == MAX_CAPACITY) {
                 System.out.println(String.format("Queue full, %s waits.", threadName));
                 integerQueue.wait();

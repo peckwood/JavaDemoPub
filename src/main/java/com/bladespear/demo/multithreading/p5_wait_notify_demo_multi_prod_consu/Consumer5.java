@@ -1,9 +1,9 @@
-package com.bladespear.demo.multithreading.p4_wait_notify_demo_producer_consumer1;
+package com.bladespear.demo.multithreading.p5_wait_notify_demo_multi_prod_consu;
 
 import java.util.LinkedList;
 import java.util.Random;
 
-public class Consumer implements Runnable {
+public class Consumer5 implements Runnable {
     private final LinkedList<Integer> integerQueue;
     private Random random = new Random();
 
@@ -22,7 +22,7 @@ public class Consumer implements Runnable {
     private void consume() throws InterruptedException {
         synchronized (integerQueue) {
             if (integerQueue.isEmpty()) {
-                System.out.println("Queue empty, Consumer5 waits.");
+                System.out.println("Queue empty, Consumer waits.");
                 integerQueue.wait();
             }
             Integer number = integerQueue.pop();
@@ -32,7 +32,7 @@ public class Consumer implements Runnable {
         Thread.sleep(random.nextInt(1000));
     }
 
-    public Consumer(LinkedList<Integer> integerQueue) {
+    public Consumer5(LinkedList<Integer> integerQueue) {
         this.integerQueue = integerQueue;
     }
 }

@@ -1,9 +1,9 @@
-package com.bladespear.demo.multithreading.p4_wait_notify_demo_producer_consumer1;
+package com.bladespear.demo.multithreading.p5_wait_notify_demo_multi_prod_consu;
 
 import java.util.LinkedList;
 import java.util.Random;
 
-public class Producer implements Runnable {
+public class Producer5 implements Runnable {
 
     private final LinkedList<Integer> integerQueue;
     private final int MAX_CAPACITY;
@@ -22,7 +22,7 @@ public class Producer implements Runnable {
         }
     }
 
-    public Producer(LinkedList<Integer> integerQueue, int MAX_CAPACITY) {
+    public Producer5(LinkedList<Integer> integerQueue, int MAX_CAPACITY) {
         this.integerQueue = integerQueue;
         this.MAX_CAPACITY = MAX_CAPACITY;
     }
@@ -30,7 +30,7 @@ public class Producer implements Runnable {
     private void produce() throws InterruptedException {
         synchronized (integerQueue) {
             while (integerQueue.size() == MAX_CAPACITY) {
-                System.out.println("Queue full, Producer5 waits.");
+                System.out.println("Queue full, Producer waits.");
                 integerQueue.wait();
             }
             integerQueue.add(number);

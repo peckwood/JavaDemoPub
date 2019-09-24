@@ -1,10 +1,11 @@
-package com.bladespear.demo.multithreading.p5_wait_notify_demo_multi_prod_consu;
+package com.bladespear.demo.multithreading.p5_wait_notify_demo_multi_prod_consu_problem;
 
 import java.util.LinkedList;
 import java.util.Random;
 
 public class Producer5 implements Runnable {
 
+    private String threadName;
     private final LinkedList<Integer> integerQueue;
     private final int MAX_CAPACITY;
     private int number = 1;
@@ -12,7 +13,7 @@ public class Producer5 implements Runnable {
 
     @Override
     public void run() {
-        int i = 1;
+        threadName = Thread.currentThread().getName();
         while (true) {
             try {
                 produce();
@@ -28,15 +29,18 @@ public class Producer5 implements Runnable {
     }
 
     private void produce() throws InterruptedException {
+
+        System.out.println(String.format("Producer %s has lock", threadName));
         synchronized (integerQueue) {
             while (integerQueue.size() == MAX_CAPACITY) {
-                System.out.println("Queue full, Producer waits.");
+                System.out.println(String.format("Queue full, %s waits.", threadName));
                 integerQueue.wait();
             }
             integerQueue.add(number);
-            System.out.println(String.format("Produced %d, integerQueue: %s", number, integerQueue));
+            System.out.println(String.format("%s produced %d, integerQueue: %s", threadName, number, integerQueue));
             number++;
             integerQueue.notifyAll();
+            System.out.println(String.format("Producer %s notifiedAll", threadName));
         }
         Thread.sleep(random.nextInt(1000));
     }

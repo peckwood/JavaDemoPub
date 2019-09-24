@@ -13,7 +13,7 @@ public class MainClassP4 {
         Producer producer = new Producer(queue, 4);
         Consumer consumer = new Consumer(queue);
 
-        BlockingQueue<Runnable> workQueue = new ArrayBlockingQueue(10);
+        BlockingQueue<Runnable> workQueue = new ArrayBlockingQueue<>(10);
         ExecutorService pool = new ThreadPoolExecutor(2, 4, 5, TimeUnit.SECONDS, workQueue);
 
         pool.execute(consumer);
